@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C55A531-8BE5-4136-ADB6-32177CAF0A43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RMS_MPD</RootNamespace>
+    <AssemblyName>RMS_MPD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Bunifu.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BunifuDataViz, Version=1.1.1.5, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\BunifuDataViz.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.4">
+      <HintPath>D:\Program Files\Microsoft Visual Studio 2019\Common7\Packages\Bunifu UI WinForms\Bunifu_UI_v1.4.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\..\..\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestRequest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\RestRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomersInfoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomersInfoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Customer_Dashboard_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\Customer_Dashboard_Main.Designer.cs">
+      <DependentUpon>Customer_Dashboard_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Customer_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\Customer_Login.Designer.cs">
+      <DependentUpon>Customer_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Customer_Signup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\Customer_Signup.Designer.cs">
+      <DependentUpon>Customer_Signup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\DrawSignature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\DrawSignature.Designer.cs">
+      <DependentUpon>DrawSignature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_AccountSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_AccountSettings.Designer.cs">
+      <DependentUpon>UserControl_Customer_AccountSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_CopmletePurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_CopmletePurchase.Designer.cs">
+      <DependentUpon>UserControl_Customer_CopmletePurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_Home.Designer.cs">
+      <DependentUpon>UserControl_Customer_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_Order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_Order.Designer.cs">
+      <DependentUpon>UserControl_Customer_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_OrderHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_OrderHistory.Designer.cs">
+      <DependentUpon>UserControl_Customer_OrderHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_ShoppingList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\UserControl_Customer_ShoppingList.Designer.cs">
+      <DependentUpon>UserControl_Customer_ShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs" />
+    <Compile Include="FoodCalender.cs" />
+    <Compile Include="FoodCalenderDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodCalenderDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FoodDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ManagersInfoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagersInfoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Manager_Dashboard_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager_Dashboard_Main.Designer.cs">
+      <DependentUpon>Manager_Dashboard_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Manager_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager_Login.Designer.cs">
+      <DependentUpon>Manager_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_AccountSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_AccountSettings.Designer.cs">
+      <DependentUpon>UserControl_Manager_AccountSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_CMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_CMenu.Designer.cs">
+      <DependentUpon>UserControl_Manager_CMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_Finances.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_Finances.Designer.cs">
+      <DependentUpon>UserControl_Manager_Finances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_Home.Designer.cs">
+      <DependentUpon>UserControl_Manager_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_OrderHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_OrderHistory.Designer.cs">
+      <DependentUpon>UserControl_Manager_OrderHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_Orders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manager\UserControl_Manager_Orders.Designer.cs">
+      <DependentUpon>UserControl_Manager_Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuMain.Designer.cs">
+      <DependentUpon>MenuMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHistory.cs" />
+    <Compile Include="OrderHistoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderHistoryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingList.cs" />
+    <Compile Include="ShoppingListDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utility.cs" />
+    <EmbeddedResource Include="Customer\Customer_Dashboard_Main.resx">
+      <DependentUpon>Customer_Dashboard_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\Customer_Login.resx">
+      <DependentUpon>Customer_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\Customer_Signup.resx">
+      <DependentUpon>Customer_Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\DrawSignature.resx">
+      <DependentUpon>DrawSignature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\UserControl_Customer_AccountSettings.resx">
+      <DependentUpon>UserControl_Customer_AccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\UserControl_Customer_CopmletePurchase.resx">
+      <DependentUpon>UserControl_Customer_CopmletePurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\UserControl_Customer_Home.resx">
+      <DependentUpon>UserControl_Customer_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\UserControl_Customer_Order.resx">
+      <DependentUpon>UserControl_Customer_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\UserControl_Customer_OrderHistory.resx">
+      <DependentUpon>UserControl_Customer_OrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\UserControl_Customer_ShoppingList.resx">
+      <DependentUpon>UserControl_Customer_ShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Manager_Dashboard_Main.resx">
+      <DependentUpon>Manager_Dashboard_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Manager_Login.resx">
+      <DependentUpon>Manager_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UserControl_Manager_AccountSettings.resx">
+      <DependentUpon>UserControl_Manager_AccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UserControl_Manager_CMenu.resx">
+      <DependentUpon>UserControl_Manager_CMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UserControl_Manager_Finances.resx">
+      <DependentUpon>UserControl_Manager_Finances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UserControl_Manager_Home.resx">
+      <DependentUpon>UserControl_Manager_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UserControl_Manager_OrderHistory.resx">
+      <DependentUpon>UserControl_Manager_OrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UserControl_Manager_Orders.resx">
+      <DependentUpon>UserControl_Manager_Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuMain.resx">
+      <DependentUpon>MenuMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="CustomersInfoDataSet.xsc">
+      <DependentUpon>CustomersInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CustomersInfoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomersInfoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CustomersInfoDataSet.xss">
+      <DependentUpon>CustomersInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FoodCalenderDBDataSet.xsc">
+      <DependentUpon>FoodCalenderDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FoodCalenderDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FoodCalenderDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FoodCalenderDBDataSet.xss">
+      <DependentUpon>FoodCalenderDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FoodDBDataSet.xsc">
+      <DependentUpon>FoodDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FoodDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FoodDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FoodDBDataSet.xss">
+      <DependentUpon>FoodDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ManagersInfoDataSet.xsc">
+      <DependentUpon>ManagersInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ManagersInfoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ManagersInfoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ManagersInfoDataSet.xss">
+      <DependentUpon>ManagersInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OrderHistoryDataSet.xsc">
+      <DependentUpon>OrderHistoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OrderHistoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrderHistoryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OrderHistoryDataSet.xss">
+      <DependentUpon>OrderHistoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\ShoppingList.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ShoppingListDBDataSet.xsc">
+      <DependentUpon>ShoppingListDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ShoppingListDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShoppingListDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ShoppingListDBDataSet.xss">
+      <DependentUpon>ShoppingListDBDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CustomersInfo.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CustomersInfo_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>CustomersInfo.mdf</DependentUpon>
+    </Content>
+    <Content Include="FoodCalenderDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FoodCalenderDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>FoodCalenderDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="FoodDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FoodDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>FoodDB.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\restaurant11.jpg" />
+    <None Include="Resources\Plus.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\CompletePurchase.png" />
+    <None Include="Resources\restaurant12.jpg" />
+    <None Include="Resources\PayPal.png" />
+    <None Include="Resources\MasterCard.png" />
+    <None Include="Resources\Bitcoin.png" />
+    <None Include="Resources\percent.png" />
+    <Content Include="ManagersInfo.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ManagersInfo_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ManagersInfo.mdf</DependentUpon>
+    </Content>
+    <Content Include="Orderhistory.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Orderhistory_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Orderhistory.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\restaurant13.jpg" />
+    <None Include="Resources\restaurant14.jpg" />
+    <None Include="Resources\restaurant15.jpg" />
+    <None Include="Resources\restaurant16.jpg" />
+    <None Include="Resources\menupic.jpg" />
+    <None Include="Resources\telegram.png" />
+    <None Include="Resources\github.png" />
+    <Content Include="ShoppingListDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ShoppingListDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ShoppingListDB.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\restaurant10.jpg" />
+    <None Include="Resources\restaurant9.jpg" />
+    <None Include="Resources\restaurant2.jpg" />
+    <None Include="Resources\restaurant3.jpg" />
+    <None Include="Resources\restaurant5.jpg" />
+    <None Include="Resources\restaurant4.jpg" />
+    <None Include="Resources\changemenu-back.jpg" />
+    <None Include="Resources\ChangeMenu.png" />
+    <None Include="Resources\Finance.png" />
+    <None Include="Resources\OrderHistory.png" />
+    <None Include="Resources\ShoppingCard.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Order.png" />
+    <None Include="Resources\Back.png" />
+    <None Include="Resources\BarsMenu.png" />
+    <None Include="Resources\Home.png" />
+    <None Include="Resources\Customer.png" />
+    <None Include="Resources\Manager.png" />
+    <None Include="Resources\MenuMain-2.jpg" />
+    <None Include="Resources\MenuMain.jpg" />
+    <None Include="Resources\Splash.jpg" />
+    <None Include="Resources\Email.png" />
+    <None Include="Resources\Password.png" />
+    <None Include="Resources\Minimize.png" />
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp">
+      <Version>5.12.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
